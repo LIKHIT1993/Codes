@@ -1,0 +1,33 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class Likhit {
+
+    public static void printDuplicates(String input) {
+        Set<String> uniqueWords = new HashSet<>();
+        Set<String> duplicateWords = new HashSet<>();
+
+        // Split the string into words
+        String[] words = input.split("\\s+");
+
+        // Add words to uniqueWords if encountered for the first time,
+        // otherwise, add to duplicateWords
+        for (String word : words) {
+            if (!uniqueWords.add(word)) {
+                duplicateWords.add(word);
+            }
+        }
+
+        // Display the duplicate words
+        System.out.println("Duplicate words in the string:");
+        for (String duplicateWord : duplicateWords) {
+            System.out.println(duplicateWord);
+        }
+    }
+
+    public static void main(String[] args) {
+        String inputString = "Likhit Panigrahi is a good boy. He loves rishi, and he likes her too very much. He is awesome. Likhit is awesome too.";
+
+        printDuplicates(inputString);
+    }
+}
