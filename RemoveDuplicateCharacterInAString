@@ -1,0 +1,26 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class RemoveDuplicateCharacterInAString {
+
+    public static String removeDuplicateCharacters(String input) {
+        Set<Character> uniqueCharacters = new HashSet<>();
+        String result = "";
+
+        for (char ch : input.toCharArray()) {
+            if (uniqueCharacters.add(ch)) {
+                result += ch;
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String inputString = "Hello World";
+
+        String result = removeDuplicateCharacters(inputString);
+
+        System.out.println("String after removing duplicate characters: " + result);
+    }
+}
