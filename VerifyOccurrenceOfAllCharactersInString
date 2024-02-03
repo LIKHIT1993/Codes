@@ -1,0 +1,34 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Likhit{
+  
+  public static void occurrence(String input)
+  {
+    
+    Map<Character,Integer> c1 = new HashMap<>();
+    
+    for(char ch: input.toCharArray()){
+      c1.put(ch, c1.getOrDefault(ch, 0) + 1);
+
+    }
+    
+    for( Map.Entry<Character, Integer> entry: c1.entrySet())
+    
+    {
+      
+     System.out.println(entry.getKey() + ": " + entry.getValue());
+    }
+    
+  }
+    
+    public static void main(String[] args) {
+        String inputString = "Likhit Panigrahi";
+        String stringWithoutSpaces = inputString.replaceAll("\\s", "");
+
+        System.out.println("Character occurrences in the string:");
+        occurrence(stringWithoutSpaces);
+    }
+    
+    
+  }
