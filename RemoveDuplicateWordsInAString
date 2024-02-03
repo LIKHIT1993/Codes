@@ -1,0 +1,27 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class RemoveDuplicateWordsInAString {
+
+    public static String removeDuplicateWords(String input) {
+        Set<String> uniqueWords = new HashSet<>();
+        String[] words = input.split("\\s+");
+        String result = "";
+
+        for (String word : words) {
+            if (uniqueWords.add(word)) {
+                result += word + " ";
+            }
+        }
+
+        return result.trim();
+    }
+
+    public static void main(String[] args) {
+        String inputString = "Hello World Hello World Java is awesome Java is awesome";
+
+        String result = removeDuplicateWords(inputString);
+
+        System.out.println("String after removing duplicate words: " + result);
+    }
+}
