@@ -1,0 +1,37 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class FindFirstNonRepeatedWord {
+    public static String findFirstNonRepeatedWord(String sentence) {
+        // Split the sentence into words
+        String[] words = sentence.split("\\s+");
+
+        // Create a HashMap to store word frequencies
+        Map<String, Integer> wordCounts = new HashMap<>();
+
+        // Count occurrences of each word in the sentence
+        for (String word : words) {
+            wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
+        }
+
+        // Iterate through the words and find the first non-repeated word
+        for (String word : words) {
+            if (wordCounts.get(word) == 1) {
+                return word;
+            }
+        }
+
+        // If there is no non-repeated word, return null or throw an exception
+        return null;
+    }
+
+    public static void main(String[] args) {
+        String input = "This is a test sentence to find the first non-repeated word in the sentence";
+        String firstNonRepeatedWord = findFirstNonRepeatedWord(input);
+        if (firstNonRepeatedWord != null) {
+            System.out.println("First non-repeated word: " + firstNonRepeatedWord);
+        } else {
+            System.out.println("No non-repeated word found in the sentence.");
+        }
+    }
+}
