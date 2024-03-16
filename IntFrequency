@@ -1,0 +1,20 @@
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4}; // Example array
+        int[] frequency = new int[101]; // Assuming numbers range from 0 to 100
+        int maxFrequency = 0;
+        int mostFrequentNumber = 0;
+
+        for (int num : array) {
+            frequency[num]++;
+            if (frequency[num] > maxFrequency) {
+                maxFrequency = frequency[num];
+                mostFrequentNumber = num;
+            }
+        }
+
+        System.out.println("Number with highest frequency: " + mostFrequentNumber);
+    }
+}
