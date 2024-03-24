@@ -1,20 +1,29 @@
 import java.util.HashMap;
 
-public class Main {
+public class Likhit {
+ 
     public static void main(String[] args) {
-        int[] array = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4}; // Example array
-        int[] frequency = new int[101]; // Assuming numbers range from 0 to 100
-        int maxFrequency = 0;
-        int mostFrequentNumber = 0;
+   
+        HashMap<Integer, Integer> c1 = new HashMap<Integer, Integer>();
+ 
+        int[] array = {1, 2, 3, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7, 8, 8, 8, 8, 8};
 
-        for (int num : array) {
-            frequency[num]++;
-            if (frequency[num] > maxFrequency) {
-                maxFrequency = frequency[num];
-                mostFrequentNumber = num;
+        for (int a : array) {
+            c1.put(a, c1.getOrDefault(a, 0) + 1);
+        }
+
+        int maxFreq = 0;
+        int mostRepeatedNumber = -1;
+
+        for (HashMap.Entry<Integer, Integer> entry : c1.entrySet()) {
+            int frequency = entry.getValue();
+            if (frequency > maxFreq) {
+                maxFreq = frequency;
+                mostRepeatedNumber = entry.getKey();
             }
         }
 
-        System.out.println("Number with highest frequency: " + mostFrequentNumber);
+        System.out.println("Most repeated number: " + mostRepeatedNumber);
+        System.out.println("Frequency: " + maxFreq);
     }
 }
